@@ -2,36 +2,29 @@
 import { Platform,AppRegistry, StyleSheet} from 'react-native';
 
 module.exports= {
-  bigblue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
-  red: {
-    color: 'red',
-  },
+
+ 
   appHeader :
   {
-    flex:1,
-    backgroundColor: (Platform.OS === 'ios') ? '#DC66FF':'#DA87F3',
-     justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: (Platform.OS === 'ios') ? '#F3B059':'#F3B059',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+
   },
   headerText :
   {
    textAlign: 'center',
-    marginTop: 16,
+
     fontSize : (Platform.OS === 'ios') ? 20 : 13,
-    color:(Platform.OS === 'ios') ? 'white' : 'black',
+    color: 'white',
   },
-  body :{
-    flex: .87,
-    justifyContent: 'center',
+  appBody :{
+    
     alignItems: 'center',
 
   },
    primaryButton: {
-    minWidth : 200,
+    minWidth : 270,
     minHeight :50,
     borderRadius: 7,
     justifyContent: 'center',
@@ -40,7 +33,7 @@ module.exports= {
     
   },
   roundButton : {
-     minWidth : 200,
+     minWidth : 270,
     minHeight :50,
     borderRadius: 50,
     justifyContent: 'center',
@@ -51,8 +44,8 @@ module.exports= {
     fontSize : (Platform.OS === 'ios') ? 20 : 13,
     color: 'white'
   },
-  primarText : {
-    minWidth : 200,
+  primaryTextInput : {
+    minWidth : 270,
     marginBottom : 30,
     minHeight :50,
     borderRadius: 7,
@@ -61,5 +54,13 @@ module.exports= {
     alignItems: 'center',
     borderColor: 'gray',
     borderWidth: 1
+  },
+
+  welcomeText:{
+    fontSize : 20,
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginBottom:30,
   }
+
 }
