@@ -2,7 +2,7 @@
 import { Platform,AppRegistry, StyleSheet} from 'react-native';
 
 var riactClr = '#60b4f3';
-var backgroundColor = '#d4e8f7';
+var backgroundColor = '#fff';
 var riactBtnClr = '#1485d8';
 var minWidth = 300;
 var minHeight =50;
@@ -147,8 +147,8 @@ module.exports= {
 
     },
     listitem: {
-        backgroundColor: '#ffffff',
-        margin: 6,
+        backgroundColor: '#C2DFFF',
+        margin: 12,
         width: 150,
         height:60,
         justifyContent:'center',
