@@ -4,8 +4,10 @@ import { Platform,AppRegistry, StyleSheet} from 'react-native';
 var riactClr = '#60b4f3';
 var backgroundColor = '#fff';
 var riactBtnClr = '#1485d8';
-var minWidth = 300;
+var minWidth = 250;
 var minHeight =50;
+var mlivClr = '#F79F1A';
+var creamClr = '#f6f5ed';
 
 module.exports= {
 
@@ -14,6 +16,44 @@ module.exports= {
     alignItems: 'center',
     flex:1,
     backgroundColor:backgroundColor,
+  },
+
+  cardView:{
+    height:150,
+    margin:5,
+    backgroundColor:backgroundColor,
+    borderWidth: .5,
+  borderRadius: 3,
+  borderColor: '#ddd',
+  shadowColor: '#000',
+  shadowOffset: {width: 0, height: .3},
+  shadowOpacity: 0.5,
+  shadowRadius: 1,
+  },
+
+  cardViewTitle:{
+  borderColor: '#ddd',
+      borderBottomWidth: 1,
+    backgroundColor:'#1c58d8',
+
+  },
+
+  cardViewText:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    padding:6,
+    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
+    color:'#fff'
+  },
+
+  cardViewFooter:{
+    padding:6,
+  },
+
+  creamBackGround:{
+    flex:1,
+    backgroundColor:creamClr
+
   },
 
   scrollsplashScreen :{
@@ -25,6 +65,11 @@ module.exports= {
 
   scrollViewContainer :{
   flex: 1,
+  },
+
+  centerAlignView:{
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   centerAlignText :{
@@ -44,10 +89,11 @@ module.exports= {
 
   //Nav Bar Style starts Here 
   statusBar: {
-    backgroundColor: riactBtnClr, 
+    backgroundColor: (Platform.OS === 'ios') ?mlivClr: '#d88b15', 
   },
   navBar: {
-    backgroundColor: riactBtnClr,
+    backgroundColor: mlivClr,
+    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -61,21 +107,45 @@ module.exports= {
     // default styles: 
     justifyContent:'center',
     alignItems : 'center',
-    color: '#ffffff',
+    color:'#ffffff',
+        backgroundColor: mlivClr,
+
+  },
+
+
+  navTitle:{
+    justifyContent:'center',
+    alignItems : 'center',
+    backgroundColor: mlivClr,
   },
 
 
   //Nav Bar ends here
+
+  tableHeader:{
+    color: '#24bc09',//#1c58d8'#24bc09'
+    fontSize:18,
+    fontWeight: 'bold',
+    marginTop:10,
+
+  },
 
 
   headerText :
   {
    textAlign: 'center',
    marginTop:10,
-    fontSize : (Platform.OS === 'ios') ? 20 : 16,
+    fontSize : 20,
     color: 'black',
   },
 
+mlivWelcomeText :
+  {
+   textAlign: 'center',
+   marginTop:15,
+    fontSize : 30,
+    color: '#F79F1A',
+  },
 
   appBody :{
     
@@ -125,6 +195,37 @@ module.exports= {
     marginBottom:(Platform.OS === 'ios') ?30:15,
   },
 
+  headLineText:{
+    fontWeight: 'bold',
+    fontSize : 15,
+
+  },
+
+  newsContent:{
+    fontSize : 15,
+    marginTop:4,
+
+  },
+
+  imageTitleText:{
+
+    fontSize : 11,
+    justifyContent: 'center',
+    textAlign: 'center',
+    paddingTop:5,
+    color:mlivClr,
+        fontWeight: 'bold',
+
+  },
+  welcomeTextWhite:{
+    padding:10,
+    fontSize : 20,
+    color : '#fff',
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginBottom:(Platform.OS === 'ios') ?30:15,
+  },
+
   riactButton:{
     minWidth : minWidth,
     minHeight :minHeight,
@@ -143,10 +244,8 @@ module.exports= {
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent:'center',
-
-
     },
-    listitem: {
+  listitem: {
         backgroundColor: '#C2DFFF',
         margin: 12,
         width: 150,
@@ -154,8 +253,34 @@ module.exports= {
         justifyContent:'center',
         alignItems:'center'
 
-    }
+  },
 
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f2632b',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#a22af1',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#d13030',
+  },
+
+  slide4: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1c357a',
+  },
+bgContainer: { flex:1, width: 300, height: 400 } ,
 
 
 }
