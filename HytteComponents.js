@@ -1,24 +1,12 @@
 import React from 'react';
-import {Text, View,Image,TouchableOpacity,StatusBar,Dimensions,Platform,WebView} from 'react-native';
+import {Text, View,Image,TouchableOpacity,StatusBar,Dimensions,Platform,WebView,ActivityIndicator} from 'react-native';
 import styles from './styles';
 import NavBar, { NavGroup, NavButton, NavButtonText, NavTitle } from 'react-native-nav'
-
+import { Share } from 'react-native';
+import { Fab } from 'native-base';
 
 class CardView extends React.Component {
 
-	/*static propTypes = {
-    content: React.PropTypes.string.isRequired,
-    textStyles: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.number,
-      React.PropTypes.shape({}),
-    ]).isRequired,
-    buttonStyles: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.number,
-      React.PropTypes.shape({}),
-    ]).isRequired,
-  }*/
   render() {
   	var { children,title,height,footer,titleColor,titleBackground} = this.props;
 
@@ -51,19 +39,6 @@ class CardView extends React.Component {
 
 class NewsCardView extends React.Component {
 
-	/*static propTypes = {
-    content: React.PropTypes.string.isRequired,
-    textStyles: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.number,
-      React.PropTypes.shape({}),
-    ]).isRequired,
-    buttonStyles: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.number,
-      React.PropTypes.shape({}),
-    ]).isRequired,
-  }*/
   render() {
   	var { children,title,height,footer,titleColor,titleBackground,imgUri} = this.props;
 
@@ -82,29 +57,102 @@ class NewsCardView extends React.Component {
   }
 }
 
+class ProfileCard extends React.Component {
+
+  render() {
+  	var { children,title,height,footer,titleColor,titleBackground} = this.props;
+
+  	titleTag=<View></View>
+
+  	if(title!="")
+  	{
+  		titleTag=
+	  		<View style={[styles.cardViewTitle,{backgroundColor:titleBackground}]}>
+	      		<Text style={[styles.cardViewText,{color:titleColor}]}>
+	      			{title}
+	      		</Text>
+	     	 </View>
+  	}
+
+
+    return (
+      <View style={[styles.profileView,{height:height}]}>
+      {titleTag}
+      <View style={{flex:3,padding:5,}}>
+        {children}
+       </View>
+       <View style={{flex:1}}>
+       {footer}
+       </View>
+      </View>
+    )
+  }
+}
+
 
 class HytteWebView extends React.Component {
+
+	constructor(props) {
+    super(props);
+    
+    this.state = {loading:false}
+
+  }
   render() {
-  	const { children,uri,reactComponent } = this.props;
-    return (
-      <View style={{flex:1}}>
-      <NavBar style={styles}>
+  	const { children,uri,reactComponent,showHeader,title,onMessageEnable} = this.props;
+  	loading = this.state.loading
+  	console.log(loading)
+  	indicator=<View></View>
+  	header = <View></View>
+  	
+
+  	if(showHeader!=false){
+  		header = 
+
+  	<NavBar style={styles}>
+      <StatusBar  barStyle="light-content"  backgroundColor="#F79F1A"/>
+
       <NavButton  style={{marginLeft:0}} onPress={() => reactComponent.setState({openNews:false,uri:''})}>
 	      <NavButtonText style={styles.title}>
 	        {"close"}
 	      </NavButtonText>
       </NavButton>
       <NavTitle style={styles.title}>
-        {'WebView'}
+        {title}
       </NavTitle>
-      <NavButtonText>
-      </NavButtonText>
+      <NavButton   onPress={() => 
+      	Share.share({
+    		message: 'Try out M-Liv, One of the best app for People who like cars & bike',
+    		url: uri,
+    		title: 'M-Liv vehicle news'
+  			})}>
+	      <NavButtonText style={styles.title}>
+	        {"share"}
+	      </NavButtonText>
+      </NavButton>
       </NavBar>
-      <WebView source={{uri: uri}}/>
+
+  	}
+  	
+    return (
+      <View style={{flex:1}}>
+      {header}
+      <WebView source={{uri: uri}} scalesPageToFit={false} onMessage={onMessageEnable ? (event) => this.onMessage(event,onMessageEnable,reactComponent) : null } renderLoading={() => {return(<View style={styles.splashScreen}><ActivityIndicator size="large" color='#F79F1A' /></View>)}}
+   		startInLoadingState/>
       </View>
 
     )
-  }
 }
 
-module.exports={CardView,HytteWebView,NewsCardView}
+onMessage(data,onMessageEnable,reactComponent) {
+ 
+ if(onMessageEnable == true){
+ 	
+ 	 reactComponent.onMessage(data)
+  	
+  	}
+}
+
+}
+
+module.exports={CardView,HytteWebView,NewsCardView,ProfileCard}

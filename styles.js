@@ -4,7 +4,7 @@ import { Platform,AppRegistry, StyleSheet} from 'react-native';
 var riactClr = '#60b4f3';
 var backgroundColor = '#fff';
 var riactBtnClr = '#1485d8';
-var minWidth = 250;
+var minWidth = 300;
 var minHeight =50;
 var mlivClr = '#F79F1A';
 var creamClr = '#f6f5ed';
@@ -31,6 +31,23 @@ module.exports= {
   shadowRadius: 1,
   },
 
+  profileView:{
+    height:150,
+    backgroundColor:backgroundColor,
+  borderRadius: 3,
+  borderColor: '#ddd',
+  shadowColor: '#000',
+  shadowOffset: {width: 0, height: .3},
+  shadowOpacity: 0.5,
+  shadowRadius: 1,
+  },
+
+  profileViewTitle:{
+   marginTop:10,
+    fontSize : 30,
+    color: 'black',
+  },
+
   cardViewTitle:{
   borderColor: '#ddd',
       borderBottomWidth: 1,
@@ -39,7 +56,7 @@ module.exports= {
   },
 
   cardViewText:{
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     padding:6,
     borderBottomColor: 'rgba(0, 0, 0, 0.1)',
@@ -112,6 +129,43 @@ module.exports= {
 
   },
 
+  linkText:{
+    color:'#1c58d8',
+    marginTop:10,
+    marginBottom:10,
+    textDecorationLine:'underline'
+  },
+
+  sliderSelectedView:{
+      flex:3,
+      borderBottomWidth: 3,
+      borderColor: '#F79F1A',
+  },
+  
+  sliderSelectedText:{
+    textAlign: 'center',
+    fontSize:15,
+    fontWeight: 'bold',
+    color:"#F79F1A"
+  },
+
+  sliderNotSelectedView:{
+      flex:3,
+  },
+  
+  sliderNotSelectedText:{
+    textAlign: 'center',
+    fontSize:15,
+    fontWeight: 'bold',
+  },
+
+
+smallButtonText:{
+    color:'#1c58d8',
+    marginTop:10,
+    marginBottom:10,
+  },
+
 
   navTitle:{
     justifyContent:'center',
@@ -163,6 +217,18 @@ mlivWelcomeText :
     backgroundColor: '#F79F1A',
     
   },
+  smallWhiteButton: {
+    width : 150,
+    minHeight :30,
+    borderRadius: 7,
+    marginTop:12,
+    marginBottom:12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    borderWidth: .5,
+    borderColor: '#000',
+  },
   roundButton : {
      minWidth : minWidth,
     minHeight :minHeight,
@@ -202,7 +268,7 @@ mlivWelcomeText :
   },
 
   newsContent:{
-    fontSize : 15,
+    fontSize : 14,
     marginTop:4,
 
   },
@@ -255,6 +321,26 @@ mlivWelcomeText :
 
   },
 
+    documentListViewContainer: {
+        alignItems:'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent:'center',
+
+
+    },
+    documentListitem: {
+        width : 150,
+        minHeight :30,
+        borderRadius: 7,
+        margin: 12,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+        borderWidth: .5,
+        borderColor: '#000',
+    },
+
   slide1: {
     flex: 1,
     justifyContent: 'center',
@@ -282,5 +368,37 @@ mlivWelcomeText :
   },
 bgContainer: { flex:1, width: 300, height: 400 } ,
 
+actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
+
+  listItemText:{
+        fontSize :17,
+  },
+
+transparentButton: {
+    width : 75,
+    borderRadius: 7,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    borderColor: '#000',
+
+  },
+
+  mlivBackgroundClr:{
+    backgroundColor:mlivClr
+  },
+
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  innerContainer: {
+    alignItems: 'center',
+  },
 
 }
