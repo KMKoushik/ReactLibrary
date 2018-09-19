@@ -5,8 +5,8 @@ import MlivConstants from '../utils/constants'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA6BvWbNH4AoVI_j4p4-HlkH7L6xVRNSWI",
-  authDomain: "hytteroger.firebaseapp.com",
+  apiKey: "*****",
+  authDomain: "****",
   databaseURL: "https://hytteroger.firebaseio.com",
   storageBucket: "hytteroger.appspot.com",
 };
